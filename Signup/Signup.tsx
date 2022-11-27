@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import {Link} from "react-router-dom";
-import Requests, {Url} from "../../requests/Requests";
+import {Url, Requests} from "../../requests/Requests";
 import Button from "../customHtmlComponents/Button/Button";
 
 const Signup = ()=>{
