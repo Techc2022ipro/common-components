@@ -37,7 +37,7 @@ const Signup = ()=>{
   }
 
   return (
-    <div className="form-section">
+ <div className="form-section">
       <form onSubmit={handleSubmit} className="login-form">
         <h1>Look-Book</h1>
         <div className="login-input-div">
@@ -45,9 +45,9 @@ const Signup = ()=>{
           <label className="login-input-title">
             Username
           </label>
-          <input 
-            type="text" 
-            onChange={handleUsername} 
+          <input
+            type="text"
+            onChange={handleUsername}
             value={username}
             className="login-input"
           />
@@ -56,9 +56,9 @@ const Signup = ()=>{
           <label className="login-input-title">
             Email
           </label>
-          <input 
-            type="email" 
-            onChange={handleEmail} 
+          <input
+            type="email"
+            onChange={handleEmail}
             value={email}
             className="login-input"
           />
@@ -67,9 +67,9 @@ const Signup = ()=>{
           <label className="login-input-title">
             Password
           </label>
-          <input 
-            type="password" 
-            onChange={handlePassword} 
+          <input
+            type="password"
+            onChange={handlePassword}
             value={password}
             className="login-input"
           />
@@ -78,9 +78,9 @@ const Signup = ()=>{
           <label className="login-input-title">
             Confirm-Password
           </label>
-          <input 
-            type="password" 
-            onChange={handleConfirmPassword} 
+          <input
+            type="password"
+            onChange={handleConfirmPassword}
             value={confirmPassword}
             className="login-input"
           />

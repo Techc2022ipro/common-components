@@ -11,6 +11,14 @@
   box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
+.login-input-div {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .login-input {
   width: var(--input-width);
   height: var(--input-height);
@@ -24,8 +32,8 @@
 }
 
 .login-input-title {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   color: var(--form-font-color);
   text-align: start;
 }
@@ -41,13 +49,6 @@
   color: var(--link-color);
 }
 
-.login-input-div {
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
 
 
 

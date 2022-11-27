@@ -40,30 +40,30 @@ const Login = () => {
       <form onSubmit={handleSubmit} className="login-form">
         <h1>Look-Book</h1>
         <div className="login-input-div">
-        <div className="login-input-field">
-        <label className="login-input-title">
-          Username or Email
-        </label>
-          <input 
-            type="text"  
-            onChange={handleIdentifier} 
-            value={identifier} 
-            className="login-input"
-          />
-        </div>
+          <div className="login-input-field">
+            <label className="login-input-title">
+              Username or Email
+            </label>
+            <input 
+              type="text"  
+              onChange={handleIdentifier} 
+              value={identifier} 
+              className="login-input"
+            />
+          </div>
 
-        <div className="login-input-field">
-        <label className="login-input-title">
-          Password
-        </label>
-          <input 
-            type="password"  
-            onChange={handlePassword} 
-            value={password} 
-            className="login-input"
-          />
-        <Link to="/" className="form-link">Forgot Password?</Link>
-        </div>
+          <div className="login-input-field">
+            <label className="login-input-title">
+              Password
+            </label>
+            <input 
+              type="password"  
+              onChange={handlePassword} 
+              value={password} 
+              className="login-input"
+            />
+            <Link to="/" className="form-link">Forgot Password?</Link>
+          </div>
         </div>
         <Button type="submit" value="Login" />
         <p>Dont have an account? <Link to="/signup" className="form-link">Sign Up</Link></p>
