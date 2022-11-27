@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from "react";
 import {Redirect} from "react-router-dom";
-import Requests, {Url} from "../../Requests/Requests";
+import Requests, {Url} from "../../requests/Requests";
 
 const Login = () => {
   const [verified, setVerified] = useState<Boolean>(false);
