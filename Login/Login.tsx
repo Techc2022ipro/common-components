@@ -3,7 +3,7 @@ import {Link, Redirect} from "react-router-dom";
 import Requests, {Url} from "../../requests/Requests";
 import Button from "../customHtmlComponents/Button/Button";
 
-const Login = () => {
+const Login = (props: {path: string}) => {
   const [verified, setVerified] = useState<Boolean>(false);
   const [identifier, setIdentifier] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -33,7 +33,7 @@ const Login = () => {
     window.location.reload();
   }
   
-  if(verified) return (<Redirect to="/" />);
+  if(verified) return (<Redirect to={props.path} />);
 
   return (
     <div className="form-section">
