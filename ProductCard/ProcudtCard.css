@@ -1,0 +1,46 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.card {
+  width: 350px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-info {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.username {
+  padding-left: 20px;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.post-date {
+  font-size: 10px;
+  color: grey;
+}
+
+.card-profile-pic {
+  height: 84px;
+  width: 84px;
+  background-color: lightgrey;
+  border-radius: 50%;
+}
+
+.card-description {
+  font-size: 20px;
+}
+
+.tag {
+  padding: 2px;
+  text-decoration: none;
+}
