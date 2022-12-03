@@ -65,7 +65,7 @@ const Login = (props: {path: string}) => {
             <Link to="/" className="form-link">Forgot Password?</Link>
           </div>
         </div>
-        <Button type="submit" value="Login" />
+        <Button type="submit" value="Login" class="primary" />
         <p>Dont have an account? <Link to="/signup" className="form-link">Sign Up</Link></p>
       </form>
     </div>

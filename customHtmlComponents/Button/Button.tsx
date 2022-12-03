@@ -1,6 +1,6 @@
-const Button = (props: {value: string, type: "submit" | "reset"}) => { 
+const Button = (props: {value: string, type: "submit" | "reset", class:string}) => { 
   return (
-    <button type={props.type} className="btn">{props.value}</button>
+    <button type={props.type} className={props.class}>{props.value}</button>
   )
 }
 
