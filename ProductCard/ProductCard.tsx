@@ -6,7 +6,7 @@ const ProductCard = (props:Product) => {
   const dateString = props.date.toString().split("T")[0];
   
     return (
-      <div className="product-card section">
+      <div className="product-card productSection">
         <div className="card">
 
           <div className="user-info">
@@ -25,10 +25,15 @@ const ProductCard = (props:Product) => {
             }
               <p className="post-date">Posted at:{dateString}</p>
           </div>
-
+          <div className="product-image">
           <Image 
             image={props.image}
-            class="secondary" 
+            class="primaryImg" 
+          />
+          </div>
+          <input 
+            placeholder="Add a comment..."
+            className="product-comment"
           />
         </div>
       </div>
