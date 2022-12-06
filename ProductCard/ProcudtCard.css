@@ -25,14 +25,26 @@
   padding-left: 50px;
 }
 
+.product-comment-bar {
+  display: flex;
+  margin-top: 30px;
+  align-items: center;
+  border-top: 1px solid #cfcfcf;
+}
+
+.product-send {
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 7px;
+}
+
 .product-comment {
-  width: 98%;
+  width: 90%;
   height: 40px;
   border-bottom: none;
-  border-right: none;
+  border-right: 1px solid #cfcfcf;
   border-left: none;
-  border-top: 1px solid #cfcfcf;
-  margin-top: 30px;
+  border-top: none; 
   padding-left: 10px;
 }
 

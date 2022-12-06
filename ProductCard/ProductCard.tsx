@@ -1,10 +1,23 @@
 import {Link} from "react-router-dom";
 import {ProductCard as Product} from "../../response-types/ResponseTypes"
 import Image from "../Image/Image";
+import { RiSendPlaneFill } from "react-icons/ri";
+import {useState} from "react";
+import Requests, {Url} from "../../requests/Requests";
 
 const ProductCard = (props:Product) => {
+  const [comment, setComment] = useState<string>("")
   const dateString = props.date.toString().split("T")[0];
-  
+
+  const handleSubmit = () => {
+    const data = {
+      uid: props.uid,
+      pid: props.pid,
+      comment
+    };
+    Requests.post(Url.PRODUCT, "comment", data);
+  }
+
     return (
       <div className="product-card productSection">
         <div className="card">
@@ -31,10 +44,21 @@ const ProductCard = (props:Product) => {
             class="primaryImg" 
           />
           </div>
-          <input 
-            placeholder="Add a comment..."
-            className="product-comment"
-          />
+          <div className="product-comment-bar">
+            <input 
+              value={comment}
+              placeholder="Add a comment..."
+              className="product-comment"
+              onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
+                setComment(e.target.value)
+              }}
+            />
+            <RiSendPlaneFill 
+              color="darkgrey"
+              className="product-send"
+              onClick={handleSubmit}
+            />
+          </div>
         </div>
       </div>
     )

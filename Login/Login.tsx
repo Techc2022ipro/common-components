@@ -7,6 +7,7 @@ const Login = (props: {path: string}) => {
   const [verified, setVerified] = useState<Boolean>(false);
   const [identifier, setIdentifier] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     Requests.auth().then(res => setVerified(res.isVerified));
@@ -29,14 +30,15 @@ const Login = (props: {path: string}) => {
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await loginAction();
-    window.location.reload();
+    await loginAction().catch(err => {setError(err)});
   }
-  
-  if(verified) return (<Redirect to={props.path} />);
 
-  return (
+  if(verified && error === null) {
+    return (<Redirect to={props.path} />);
+  }  
+return (
     <div className="form-section">
+        {error ? <p className="error">Wrong Username/Password</p>: null}
       <form onSubmit={handleSubmit} className="login-form">
         <h1>Look-Book</h1>
         <div className="login-input-div">
