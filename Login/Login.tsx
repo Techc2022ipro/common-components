@@ -11,7 +11,7 @@ const Login = (props: {path: string}) => {
 
   useEffect(() => {
     Requests.auth().then(res => setVerified(res.isVerified));
-  }, []);
+  }, [verified]);
 
   const handleIdentifier = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIdentifier(e.target.value);
@@ -26,6 +26,7 @@ const Login = (props: {path: string}) => {
       identifier, 
       password
     });
+    window.location.reload();
   }  
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
@@ -34,8 +35,13 @@ const Login = (props: {path: string}) => {
   }
 
   if(verified && error === null) {
-    return (<Redirect to={props.path} />);
+    if(props.path === "") {
+      return (<Redirect to={"/"} />);
+    } else {
+      return (<Redirect to={props.path} />);
+    }
   }  
+
 return (
     <div className="form-section">
         {error ? <p className="error">Wrong Username/Password</p>: null}
