@@ -7,6 +7,7 @@ const Login = (props: {path: string}) => {
   const [verified, setVerified] = useState<Boolean>(false);
   const [identifier, setIdentifier] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     Requests.auth().then(res => setVerified(res.isVerified));
@@ -25,50 +26,57 @@ const Login = (props: {path: string}) => {
       identifier, 
       password
     });
+    window.location.reload();
   }  
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await loginAction();
-    window.location.reload();
+    await loginAction().catch(err => {setError(err)});
   }
-  
-  if(verified) return (<Redirect to={props.path} />);
 
-  return (
-    <div className="form-section">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h1>Look-Book</h1>
-        <div className="login-input-div">
-          <div className="login-input-field">
-            <label className="login-input-title">
-              Username or Email
-            </label>
-            <input 
-              type="text"  
-              onChange={handleIdentifier} 
-              value={identifier} 
-              className="login-input"
-            />
-          </div>
+  if(verified && error === null) {
+    if(props.path === "") {
+      return (<Redirect to={"/"} />);
+    } else {
+      return (<Redirect to={props.path} />);
+    }
+  }  
 
-          <div className="login-input-field">
-            <label className="login-input-title">
-              Password
-            </label>
-            <input 
-              type="password"  
-              onChange={handlePassword} 
-              value={password} 
-              className="login-input"
-            />
-            <Link to="/" className="form-link">Forgot Password?</Link>
-          </div>
+return (
+  <div className="form-section">
+    {error ? <p className="error">wrong username/password</p>: null}
+    <form onSubmit={handleSubmit} className="login-form">
+      <h1>Look-Book</h1>
+      <div className="login-input-div">
+        <div className="login-input-field">
+          <label className="login-input-title">
+            Username or Email
+          </label>
+          <input 
+            type="text"  
+            onChange={handleIdentifier} 
+            value={identifier} 
+            className="login-input"
+          />
         </div>
-        <Button type="submit" value="Login" />
-        <p>Dont have an account? <Link to="/signup" className="form-link">Sign Up</Link></p>
-      </form>
-    </div>
+
+        <div className="login-input-field">
+          <label className="login-input-title">
+            Password
+          </label>
+          <input 
+            type="password"  
+            onChange={handlePassword} 
+            value={password} 
+            className="login-input"
+          />
+          <Link to="/" className="form-link">Forgot Password?</Link>
+        </div>
+      </div>
+      <Button type="submit" value="Login" class="primaryBtn" />
+      <p>Dont have an account? <Link to="/signup" className="form-link">Sign Up</Link></p>
+    </form>
+  </div>
   )
 }
 
