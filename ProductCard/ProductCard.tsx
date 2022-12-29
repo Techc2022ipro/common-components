@@ -53,7 +53,7 @@ const ProductCard = (props:Product) => {
             <p className="card-description">{props.description}</p>
             {
               props.tags.map(tag => (
-                <Link to={"/"} className="tag">#{tag}</Link>
+                <Link to={"/"} className="tag" key={tag + props.pid}>#{tag}</Link>
               ))
             }
               <p className="post-date">Posted at:{dateString}</p>
