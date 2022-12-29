@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from "react";
 import {Link, Redirect} from "react-router-dom";
-import {Url, Requests} from "../../requests/Requests";
+import Requests,{Url}  from "../../requests/Requests";
 import Button from "../customHtmlComponents/Button/Button";
 
 const Login = (props: {path: string}) => {
