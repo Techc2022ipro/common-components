@@ -8,7 +8,7 @@ const Signup = ()=>{
   const [email,setEmail]=useState<string>("");
   const [password,setPassword]=useState<string>("");
   const [confirmPassword,setConfirmPassword]=useState<string>("");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>("");
   const [message, setMessage] = useState<string | null>("");
 
   const handleUsername=(e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -31,16 +31,19 @@ const Signup = ()=>{
       password,
       confirmPassword,
     }).catch(err => {
-      setError(err)}
+      setMessage(null);
+      setError(err)
+    }
     );
-    if(error === null) {
-      setMessage(user);
+    if(user.message !== "") {
+      setError(null);
+      setMessage(user.message);
     }
   }
 
   const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    signupAction()    
+    signupAction() 
   }
 
   return (
