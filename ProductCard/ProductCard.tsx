@@ -38,6 +38,7 @@ const ProductCard = (props:{product: Product, hasComment: Boolean}) => {
     }
   }
 
+
   useEffect(() => {
     getProfilePic();
   }, [])
@@ -64,6 +65,7 @@ const ProductCard = (props:{product: Product, hasComment: Boolean}) => {
         </div>
 
         <div className="product-info">
+
           <p className="card-description">{props.product.description}</p>
           {
             props.product.tags.map(tag => (
@@ -72,12 +74,14 @@ const ProductCard = (props:{product: Product, hasComment: Boolean}) => {
           }
           <p className="post-date">Posted at:{dateString}</p>
         </div>
+      <Link to={`/product/${props.product.pid}`}>
         <div className="product-image">
           <Image 
             image={props.product.image}
             class="primaryImg" 
           />
         </div>
+    </Link>
         {props.hasComment ? 
           <div className="product-comment-bar">
             <input 
